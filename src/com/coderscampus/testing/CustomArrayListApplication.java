@@ -18,11 +18,12 @@ public class CustomArrayListApplication {
 
         peeps.remove(5); //shows the implemented removal method works
 
-        System.out.println("The epic saga continues on the next exciting episode of .... featuring: ");
-        System.out.println(peeps.getSize());
-        System.out.println(peeps.get(3)); // randomly pick different numbers within the array to test
-        System.out.println(peeps.get(5));
+        System.out.println("The epic saga continues on the next exciting episode of Hero Manga Z featuring: " + peeps.get(3) + " and " + peeps.get(5));
+        System.out.println("Number of available heroes: " + peeps.getSize());
+    //    System.out.println(peeps.get(3)); // pick different numbers within the array to test
+    //    System.out.println(peeps.get(5));
         // the code works because the array is sized at 10 and
+        //the list was 11 and now showing 10 which proves the new code works as the numbers within the array shifted
         // should give an array out of bounds exception or index out of bounds without the override code created
     }
 
