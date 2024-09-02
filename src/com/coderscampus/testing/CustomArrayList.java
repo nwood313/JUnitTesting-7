@@ -1,5 +1,7 @@
 package com.coderscampus.testing;
 
+import java.util.Arrays;
+
 public class CustomArrayList<T> implements CustomList<T> {
     private Object[] items = new Object[10];
     private int size;
@@ -19,20 +21,24 @@ public class CustomArrayList<T> implements CustomList<T> {
     }
 
     @Override
-    public boolean add(int index, T item) throws IndexOutOfBoundsException {
+    public boolean add(int index, T item) {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
-        if (index == size) {
-            add(item); // add to the end of the list
-        } else {
-            // shift elements to the right to make room for the new item
-            for (int i = size; i > index; i--) {
-                items[i] = items[i - 1];
+        if (size == items.length) {
+            Object[] newItems = new Object[items.length * 2];
+            for (int i = 0; i < items.length; i++) {
+                newItems[i] = items[i];
             }
-            items[index] = item;
-            size++;
-        } return true;
+            items = newItems;
+        }
+        // Shift elements to the right to make room for the new element
+        for (int i = size; i > index; i--) {
+            items[i] = items[i - 1];
+        }
+        items[index] = item;
+        size++;
+        return true;
     }
 
     @Override
@@ -59,5 +65,13 @@ public class CustomArrayList<T> implements CustomList<T> {
         }
         size--;
         return removedItem;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomArrayList{" +
+                "items=" + Arrays.toString(items) +
+                ", size=" + size +
+                '}';
     }
 }

@@ -17,6 +17,7 @@ class CustomArrayListTest {
     }
         sut.remove(9);
         sut.remove(7);
+        System.out.println(sut);
         sut.add(1000);
         sut.add(7,1001);
         sut.add(7,1002);
@@ -28,39 +29,31 @@ class CustomArrayListTest {
 
 
         //Arrange
-        CustomList<String> peeps = new CustomArrayList<>();
-
-//        Act
-//        for (int i =0; i<10;i++) {
+//        CustomList<String> peeps = new CustomArrayList<>();
+//
+////        Act
+//        for (int i = 0; i<10;i++) {
 //            peeps.add(String.valueOf(i));
 //        }
-//        peeps.add(String.valueOf(10)); //adjust logic for strings
-//        String expectedResult = peeps.get(0);
-//        String expectedSize = String.valueOf(peeps.getSize());
-//        assertEquals(10, expectedResult);
-//        assertEquals(1,expectedSize);
-//        peeps.add("Invincible");
-//        peeps.add("Omni Man");
-//        peeps.add("The Red Blur");
+//        peeps.add(0,"Invincible");
+//        peeps.add(1,"Omni Man");
+//        peeps.add(2,"The Red Blur");
+//        peeps.add(3,"Goku");
+//        peeps.add(4,"Captain America");
+//        peeps.add(5,"Wolverine");
+//        peeps.add(6,"Miles Morales");
+//        peeps.add(7,"Black Panther");
+//        peeps.add(8,"Iron Man");
+//        peeps.add(9,"Superman");
+//        assertEquals(20, peeps.getSize());
 //
-//        assertTrue(peeps.add("MonkeyMan"));
-//        assertTrue(peeps.add("MonkeyMan"));
-//        assertTrue(peeps.add("MonkeyMan"));
-//        assertTrue(peeps.add("MonkeyMan"));
-//        assertTrue(peeps.add("MonkeyMan"));
-//        assertTrue(peeps.add("MonkeyMan"));
-//        assertEquals(10, peeps.getSize());
-
 //        peeps.remove(3);
-//        assertTrue(peeps.remove("MonkeyMan"));
-//        assertTrue(peeps.remove("MonkeyMan"));
-//        assertTrue(peeps.remove(11));
-
-
+//
+//
+//
 //        assertEquals("Invincible", peeps.get(0));
 //        assertEquals("Omni Man", peeps.get(1));
 //        assertEquals("The Red Blur", peeps.get(2));
-//        assertEquals("MonkeyMan", peeps.get(12));
 
 
     }
@@ -70,21 +63,41 @@ class CustomArrayListTest {
         //Arrange
         CustomArrayList<String> peeps = new CustomArrayList<>();
 
-        peeps.add(0,"Omni Man");
+        peeps.add(0, "Omni Man");
         assertEquals(1, peeps.getSize());
-        assertTrue(peeps.equals("Omni Man"));
+        System.out.println("After adding Omni Man: " + peeps); // print the contents of the list
+        boolean found = false;
+        for (int i = 0; i < peeps.getSize(); i++) {
+            if (peeps.get(i).equals("Omni Man")) {
+                found = true;
+                break;
+            }
+        }
+        assertTrue(found);
         assertEquals("Omni Man", peeps.get(0));
 
         //Add another hero to the same index
         peeps.add(0, "Superman");
-        assertEquals(2,peeps.getSize());
-        assertTrue(peeps.equals("Superman"));
-        assertEquals("Omni Man",peeps.get(0));
-        assertEquals("Superman",peeps.get(1));
-
-
-
-
+        assertEquals(2, peeps.getSize());
+        System.out.println("After adding Superman: " + peeps); // print the contents of the list
+        found = false;
+        for (int i = 0; i < peeps.getSize(); i++) {
+            if (peeps.get(i).equals("Superman")) {
+                found = true;
+                break;
+            }
+        }
+        assertTrue(found);
+        found = false;
+        for (int i = 0; i < peeps.getSize(); i++) {
+            if (peeps.get(i).equals("Omni Man")) {
+                found = true;
+                break;
+            }
+        }
+        assertTrue(found);
+        assertEquals("Superman", peeps.get(0));
+        assertEquals("Omni Man", peeps.get(1));
     }
 
 
@@ -94,11 +107,11 @@ class CustomArrayListTest {
         //Arrange
         CustomArrayList<String> peeps = new CustomArrayList<>();
 
-        int index = 0;
-        int size = 0;
-        if (index <=0 || index>=size) {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
+//        int index = 0;
+//        int size = 0;
+//        if (index <=0 || index>=size) {
+//            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+//        }
 
 
 
